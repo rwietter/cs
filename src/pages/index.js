@@ -1,4 +1,4 @@
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 
 import Button from '../components/button';
@@ -6,10 +6,27 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 function Home({ location }) {
-  const siteTitle = "Gatsby Starter Personal Website"
+
+  const {
+    site: {
+      siteMetadata: { title },
+    },
+  } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `
+  )
+
+  // const siteTitle = "Gatsby Starter Personal Website"
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={title}>
       <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
       <img style={{ margin: 0 }} src="./GatsbyScene.svg" alt="Gatsby Scene" />
       <h1>

@@ -1,12 +1,13 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `Gatsby Starter Personal Blog`,
-    author: `Gatsby`,
-    description: `A starter personal blog with styled components, dark mode, and Netlify CMS.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `UFSM Blog`,
+    author: `UFSM`,
+    siteTitle: `UFSM-FW Blog`,
+    description: `Um blog para informar sobre assuntos da computação na sociedade`,
+    siteUrl: `https://ufsm.netlify.com/`,
     social: {
-      twitter: `gatsbyjs`,
+      twitter: `@ufsm`,
     },
   },
   plugins: [
@@ -114,8 +115,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `UFSM Blog`,
+        short_name: `UFSM-FW`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

@@ -151,7 +151,7 @@ export const Events = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    align-items: end;
+    align-items: flex-end;
     height: 5rem;
 
     h2 {

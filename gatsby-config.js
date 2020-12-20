@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     // edit below
@@ -18,7 +20,14 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: "gatsby-plugin-local-search",
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `data`),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-local-search`,
       options: {
         name: "blog",
         engine: "flexsearch",

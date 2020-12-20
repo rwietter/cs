@@ -138,7 +138,7 @@ export const Events = styled.div`
         padding: 0 0 20px 0;
         line-height: 1.5;
         @media (min-width: 600px) {
-          line-height: 3;
+          line-height: 1.5;
         }
       }
       p span {
@@ -171,17 +171,13 @@ export const Events = styled.div`
   @media (min-width: 350px) {
     grid-template-columns: repeat(auto-fill, minmax(20rem, auto));
   }
-  @media (min-width: 720px) {
-    grid-template-columns: repeat(auto-fill, minmax(27rem, auto));
-  }
 `
 
 export const Footer = styled.footer`
   display: block;
   grid-row: 4 / 5;
   grid-column: 1 / 3;
-  width: 99vw;
-  max-width: 100vw;
+  width: 100%;
   overflow: hidden;
   background-image: url(${require("../data/waveGray.svg")});
   background-size: cover;

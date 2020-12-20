@@ -1,7 +1,7 @@
 import { m as motion } from 'framer-motion';
 import styled from 'styled-components';
 
-import { rhythm } from '../../utils/typography';
+import { rhythm } from '../utils/typography';
 
 export const Wrapper = styled.div`
   display: grid;
@@ -36,7 +36,7 @@ export const Container = styled.div`
 `
 
 export const Image = styled.svg`
-  background-image: url(${require("../../data/home.svg")});
+  background-image: url(${require("../data/home.svg")});
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
@@ -183,7 +183,7 @@ export const Footer = styled.footer`
   width: 99vw;
   max-width: 100vw;
   overflow: hidden;
-  background-image: url(${require("../../data/waveGray.svg")});
+  background-image: url(${require("../data/waveGray.svg")});
   background-size: cover;
   height: 100%;
   display: flex;
@@ -197,7 +197,7 @@ export const Footer = styled.footer`
 export const Illustration = styled(motion.svg)`
   grid-column: 1 / 3;
 
-  background-image: url(${require("../../data/Blogging - Colour/blogging.svg")});
+  background-image: url(${require("../data/Blogging - Colour/blogging.svg")});
   background-repeat: no-repeat;
   background-size: contain;
   height: 100%;

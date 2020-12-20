@@ -5,9 +5,9 @@ import React, { useEffect } from 'react';
 import Button from '../components/button';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import { events } from '../data/data.js';
 import { GlobalStyle } from '../styles';
-import { events } from './data/data';
-import * as S from './styles';
+import * as S from '../styles/styles';
 
 function Home({ location }) {
   const { scrollYProgress } = useViewportScroll()

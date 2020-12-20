@@ -33,23 +33,13 @@ function Home({ location }) {
   const {
     site: {
       siteMetadata: { title },
-    },
-    file: {
-      childImageSharp: { fluid },
-    },
+    }
   } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
-          }
-        }
-        file(relativePath: { eq: "home2.png" }) {
-          childImageSharp {
-            fluid(quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
           }
         }
       }
@@ -116,10 +106,10 @@ function Home({ location }) {
         <h1>Eventos</h1>
         <S.Events>
           {events.map(event => (
-            <a href="#">
-              <section key={event.name} className="grid-item">
+            <a key={event.name} href="#">
+              <section className="grid-item">
                 <div className="grid-item_profile">
-                  <img src={event.img} />
+                  <img width="100%" height="100%" src={event.img} alt={event.name} />
                   <h2>{event.name}</h2>
                 </div>
                 <div className="grid-item__description">

@@ -6,7 +6,7 @@ import { rhythm } from '../utils/typography';
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 0.5fr minmax(auto, 1fr) 0.5fr;
+  grid-template-rows: 0.7fr minmax(auto, 0.5fr) auto auto minmax(auto, 0.5fr);
   gap: 10px;
   width: 100%;
   height: 100%;
@@ -23,14 +23,12 @@ export const Container = styled.div`
   z-index: 1;
   grid-row: 1 / 2;
   grid-column: 1 / 3;
-  height: 100%;
   justify-self: flex-start;
   align-self: flex-start;
-  @media screen and(max-width: 720px) {
-    justify-self: flex-end;
-    align-self: flex-start;
+  max-width: 900px;
+  @media (min-width: 720px) {
+    justify-self: flex-start;
     grid-row: 1 / 2;
-    background-color: red;
     grid-column: 1 / 2;
   }
 `
@@ -52,10 +50,8 @@ export const Background = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  place-items: end;
-  place-content: end;
-
-  position: relative;
+  justify-content: center;
+  align-items: center;
 
   max-width: 100%;
   max-height: 100%;
@@ -76,6 +72,7 @@ export const BackgroundText = styled.section`
   justify-content: center;
   align-items: flex-start;
   height: 100%;
+  max-width: 90%;
   flex-flow: column;
   overflow: hidden;
   h1 {
@@ -87,14 +84,19 @@ export const BackgroundText = styled.section`
   @media (min-width: 720px) {
     display: flex;
   }
+  @media (min-width: 1100px) {
+    max-width: 70%;
+  }
 `
 
 export const SectionEvents = styled.section`
   grid-row: 3 / 4;
   grid-column: 1 / 3;
-  width: 100%;
   height: 100%;
+  width: 100%;
+  max-width: 1600px;
   display: flex;
+  margin: 0 auto;
   justify-content: center;
   align-items: center;
   flex-flow: column;
@@ -107,15 +109,12 @@ export const Events = styled.div`
   grid-row: 3 / 4;
   grid-column: 1 / 3;
   width: 100%;
-  height: 100%;
-
   display: grid;
-  grid-gap: 20px 20px;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 20rem));
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(13rem, 1fr));
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
   padding: ${rhythm(1)} ${rhythm(1)} 0 ${rhythm(1)};
 
   .grid-item {
@@ -127,6 +126,8 @@ export const Events = styled.div`
     padding: 20px;
     font-family: "Montserrat", "Courier New", Courier, monospace;
     .grid-item__description {
+      overflow: hidden;
+      text-overflow: ellipsis;
       p {
         font-size: clamp(0.6rem, 2vw, 0.7rem);
         margin: 0;
@@ -173,9 +174,26 @@ export const Events = styled.div`
   }
 `
 
+export const SectionCampaigns = styled.section`
+  padding-top: 3rem;
+  grid-row: 4 / 5;
+  grid-column: 1 / 3;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+  }
+`
+
 export const Footer = styled.footer`
   display: block;
-  grid-row: 4 / 5;
+  grid-row: 5 / 6;
   grid-column: 1 / 3;
   width: 100%;
   overflow: hidden;
@@ -198,10 +216,11 @@ export const Illustration = styled(motion.svg)`
   background-size: contain;
   height: 100%;
   width: 100%;
-  background-position: 100% 80%;
+  background-position: 50% 30%;
+  align-self: center;
 
   @media (min-width: 720px) {
-    background-position: 0 100%;
+    background-position: 0 90%;
     grid-column: 1 / 2;
   }
 `

@@ -109,7 +109,12 @@ function Home({ location }) {
             <a key={event.name} href="#">
               <section className="grid-item">
                 <div className="grid-item_profile">
-                  <img width="100%" height="100%" src={event.img} alt={event.name} />
+                  <img
+                    width="100%"
+                    height="100%"
+                    src={event.img}
+                    alt={event.name}
+                  />
                   <h2>{event.name}</h2>
                 </div>
                 <div className="grid-item__description">
@@ -126,6 +131,35 @@ function Home({ location }) {
           ))}
         </S.Events>
       </S.SectionEvents>
+      <S.SectionCampaigns>
+        <h1>Campanhas</h1>
+        <S.Events>
+          {events.map(event => (
+            <a key={event.name} href="#">
+              <section className="grid-item">
+                <div className="grid-item_profile">
+                  <img
+                    width="100%"
+                    height="100%"
+                    src={event.img}
+                    alt={event.name}
+                  />
+                  <h2>{event.name}</h2>
+                </div>
+                <div className="grid-item__description">
+                  <p>{event.description}</p>
+                  <p>
+                    <span>Data:</span> {event.date}
+                  </p>
+                  <p>
+                    <span>Local:</span> {event.location}
+                  </p>
+                </div>
+              </section>
+            </a>
+          ))}
+        </S.Events>
+      </S.SectionCampaigns>
       <S.Footer>
         <span>
           © {new Date().getFullYear()}, feito para &nbsp;

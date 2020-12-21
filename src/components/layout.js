@@ -69,7 +69,7 @@ const Wrapper = styled.div`
   min-height: 100vh;
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
 `
 
 export default Layout

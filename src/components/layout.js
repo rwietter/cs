@@ -15,7 +15,7 @@ function Layout(props) {
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
-          width: '100%',
+          width: "100%",
           maxWidth: rhythm(28),
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
@@ -27,6 +27,7 @@ function Layout(props) {
                 ...scale(1.5),
                 marginBottom: rhythm(1.5),
                 marginTop: 0,
+                lineHeight: 0.4,
               }}
             >
               <Link
@@ -34,6 +35,7 @@ function Layout(props) {
                   boxShadow: `none`,
                   textDecoration: `none`,
                   color: `inherit`,
+                  fontSize: "clamp(32px, 5vw, 6rem)",
                 }}
                 to={location.pathname === blogPath ? `/blog/` : `/`}
               >
@@ -71,6 +73,11 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  header h1 {
+    @media (min-width: 400px){
+      line-height: 1;
+    }
+  }
 `
 
 export default Layout

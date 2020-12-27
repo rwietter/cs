@@ -6,12 +6,14 @@ import styled from 'styled-components';
 import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { rhythm, scale } from '../utils/typography';
+import { rhythm } from '../utils/typography';
 
 function BlogPostTemplate(props) {
   const post = props.data.mdx
   const siteTitle = props.data.site.siteMetadata.title
   const { previous, next } = props.pageContext
+
+  const readingTime = post.fields.readingTime.text.replace("read", "de leitura")
 
   return (
     <Layout location={props.location} title={siteTitle}>
@@ -20,16 +22,19 @@ function BlogPostTemplate(props) {
         description={post.frontmatter.description || post.excerpt}
       />
       <h1>{post.frontmatter.title}</h1>
-      <p
+      <ReadingTime>
+        <span>{post.frontmatter.date}</span>
+        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <span>{readingTime}</span>
+      </ReadingTime>
+      <div
         style={{
-          ...scale(-1 / 5),
-          display: `block`,
-          marginBottom: rhythm(1),
-          marginTop: rhythm(-1),
+          width: "100%",
+          height: "1px",
+          background: "#ccc",
+          margin: "0.4rem 0 1.4rem 0",
         }}
-      >
-        {post.frontmatter.date}
-      </p>
+      />
       <MDXRenderer>{post.body}</MDXRenderer>
       <hr
         style={{
@@ -89,8 +94,15 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMMM, YYYY")
         description
+      }
+      fields {
+        slug
+        readingTime {
+          text
+          words
+        }
       }
     }
   }
@@ -98,4 +110,10 @@ export const pageQuery = graphql`
 
 const Footer = styled.footer`
   text-align: center;
+`
+
+const ReadingTime = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  font-size: clamp(14px, 2vw, 0.7rem);
 `

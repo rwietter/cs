@@ -29,7 +29,8 @@ export const Container = styled.div`
   @media (min-width: 720px) {
     justify-self: flex-start;
     grid-row: 1 / 2;
-    grid-column: 1 / 2;
+    grid-column: 1 / 3;
+    max-width: 70%;
   }
 `
 
@@ -87,7 +88,7 @@ export const Events = styled.div`
     width: 100%;
     height: auto;
     background-color: #fefefe;
-    box-shadow: 0px 2px 13px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 3px 17px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     padding: 20px;
     font-family: "Montserrat", "Courier New", Courier, monospace;
@@ -95,12 +96,12 @@ export const Events = styled.div`
       overflow: hidden;
       text-overflow: ellipsis;
       p {
-        font-size: clamp(0.6rem, 2vw, 0.7rem);
+        font-size: clamp(14px, 2vw, 0.7rem);
         margin: 0;
         line-height: 2;
       }
       p:first-child {
-        font-size: clamp(0.6rem, 2vw, 0.8rem);
+        font-size: clamp(14px, 2vw, 0.8rem);
         font-weight: 500;
         padding: 0 0 20px 0;
         line-height: 1.5;
@@ -112,6 +113,7 @@ export const Events = styled.div`
         font-weight: 600;
       }
     }
+    
   }
 
   .grid-item_profile {
@@ -171,13 +173,13 @@ export const Footer = styled.footer`
   justify-content: center;
   align-items: center;
   flex-flow: row;
-  font-size: clamp(18px, 3vw, 1rem);
+  font-size: clamp(13px, 2vw, 0.6rem);
   padding-top: ${rhythm(5)};
   flex-flow: column;
   font-family: "Montserrat", "Courier New", Courier, monospace;
 
   .wrapper {
-    padding-top: ${rhythm(1)};
+    padding-top: ${rhythm(1.4)};
   }
 
   a.twitter,
@@ -188,8 +190,15 @@ export const Footer = styled.footer`
     box-shadow: none;
   }
 
+  a.site {
+    margin-right: unset;
+  }
+
   .footer-container__copyright {
-    font-size: clamp(13px, 2vw, 0.6rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
   }
 
   .footer__year {
@@ -201,6 +210,7 @@ export const Footer = styled.footer`
     background: #e3e5ea;
     margin-top: ${rhythm(0.5)};
     width: 100%;
+    max-width: 90%;
   }
 
   svg {
@@ -230,6 +240,14 @@ export const Image = styled.svg`
   height: 100vh;
   grid-row: 1 / 2;
   grid-column: 2 / 3;
+  @media (min-width: 720px){
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 70%;
+    height: 70vh;
+    right: 0;
+    position: absolute;
+  }
 `
 
 export const Background = styled.div`

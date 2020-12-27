@@ -17,7 +17,7 @@ function Bio() {
     <StaticQuery
       query={bioQuery}
       render={data => {
-        const { author, social } = data.site.siteMetadata
+        const { author } = data.site.siteMetadata
         return (
           <Container>
             <Image
@@ -33,13 +33,8 @@ function Bio() {
                 borderRadius: `50%`,
               }}
             />
-            <p>
-              Written by <strong>{author}</strong>, a framework built upon the
-              React library.
-              {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                Follow me on Twitter
-              </a>
+            <p style={{ margin: 0 }}>
+              Escrito por <strong>{author}</strong>
             </p>
           </Container>
         )
@@ -50,7 +45,7 @@ function Bio() {
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/gatsby-icon.png/" }) {
+    avatar: file(relativePath: { eq: "assets/ufsm.png" }) {
       childImageSharp {
         fixed(width: 50, height: 50) {
           ...GatsbyImageSharpFixed
@@ -70,6 +65,9 @@ const bioQuery = graphql`
 
 const Container = styled.div`
   display: flex;
+  align-items: center;
+
+  padding-bottom: ${rhythm(1)};
 `
 
 export default Bio

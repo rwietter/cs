@@ -23,7 +23,7 @@ function Blog({ data, navigate, location }) {
         location={location}
       />
       <Link to="/">
-        <Button marginTop="85px">Go Home</Button>
+        <Button marginTop="85px">Ir para o início</Button>
       </Link>
     </Layout>
   )
@@ -48,7 +48,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "DD MMMM, YYYY")
             title
             description
           }

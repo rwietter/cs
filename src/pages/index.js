@@ -48,18 +48,20 @@ function Home({ location }) {
             keywords={[`blog`, `gatsby`, `javascript`, `react`]}
           />
           <h1>
-            Hey people{" "}
+            Bem vindo(a){" "}
             <span role="img" aria-label="wave emoji">
               👋
             </span>
           </h1>
-          <p>Welcome to your new Gatsby website. You are on your home page.</p>
           <p>
-            This starter comes out of the box with styled components and
-            Gatsby's default starter blog running on Netlify CMS.
+            Bem vindo(a) ao blog do curso de Sistemas de Informação (UFSM-FW).
+          </p>
+          <p>
+            Visite nosso blog para conhecer mais sobre o que acontece no campus
+            e na região em relação a computação e sociedade
           </p>
           <Link to="/blog/">
-            <Button marginTop="35px">Go to Blog</Button>
+            <Button marginTop="35px">Ir para o blog</Button>
           </Link>
         </Layout>
       </S.Container>
@@ -82,7 +84,7 @@ function Home({ location }) {
         <h1>Eventos</h1>
         <S.Events>
           {events.map(event => (
-            <a key={event.name} href="#">
+            <a key={event.name} href={event.name} rel="noreferrer" target="_blank">
               <section className="grid-item">
                 <div className="grid-item_profile">
                   <img
@@ -111,7 +113,7 @@ function Home({ location }) {
         <h1>Campanhas</h1>
         <S.Events>
           {events.map(event => (
-            <a key={event.name} href="#">
+            <a key={event.name} href={event.name} rel="noreferrer" target="_blank">
               <section className="grid-item">
                 <div className="grid-item_profile">
                   <img
@@ -232,13 +234,13 @@ function Home({ location }) {
         </div>
         <hr class="footer-separator" />
         <div className="footer-container__copyright">
-          © <span class="footer__year">{new Date().getFullYear()}</span>
-          &nbsp; Copyright &nbsp;
+          <span class="footer__year">© {new Date().getFullYear()}</span>
+          <span>&nbsp; Copyright &nbsp;</span>
           <a href="https://ufsm.br/" rel="noreferrer" target="_blank">
             UFSM-FW.
           </a>
-          <span>&nbsp;Todos os direitos reservados</span>
         </div>
+        <span>&nbsp;Todos os direitos reservados</span>
       </S.Footer>
     </S.Wrapper>
   )

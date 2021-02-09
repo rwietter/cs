@@ -43,7 +43,10 @@ export const heartbeat = keyframes`
 export const IconScrollIndicator = styled.svg`
   position: absolute;
   bottom: 10px;
-  left: 50%;
+  left: 40%;
   -webkit-animation: ${heartbeat} 1.5s ease-in-out infinite both;
   animation: ${heartbeat} 1.5s ease-in-out infinite both;
+	@media (min-width: 920px){
+		left: 50%;
+	}
 `

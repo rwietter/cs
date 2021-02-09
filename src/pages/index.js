@@ -7,6 +7,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { events } from '../data/data.js';
 import { GlobalStyle } from '../styles';
+import { IconScrollIndicator } from '../stylesheets/animate';
 import * as S from '../stylesheets/styles.js';
 
 function Home({ location }) {
@@ -38,10 +39,15 @@ function Home({ location }) {
     window.scrollTo(0, 0)
   }, [])
 
+  const handleScroll = () => {
+    window.scrollTo(0, 200)
+  }
+
   return (
     <S.Wrapper>
       <GlobalStyle />
-      <S.Container>
+
+      <S.LayoutWapper>
         <Layout location={location} title={title}>
           <SEO
             title="Home"
@@ -64,27 +70,53 @@ function Home({ location }) {
             <Button marginTop="35px">Ir para o blog</Button>
           </Link>
         </Layout>
-      </S.Container>
-      <S.Image />
-      <S.Background>
-        <S.Illustration
+      </S.LayoutWapper>
+
+      <S.PrimaryBackgroundImage />
+
+      <IconScrollIndicator
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-chevron-down"
+        width="100"
+        height="100"
+        viewBox="0 0 24 24"
+        stroke-width="7"
+        stroke="#00abfb"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        onClick={handleScroll}
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <polyline points="6 9 12 15 18 9" />
+      </IconScrollIndicator>
+
+      <S.PolygonSecation>
+        <S.PlygonImage
           style={{
             scale: progressIllustrationY,
           }}
         />
-        <S.BackgroundText>
+        <S.PolygonDescription>
           <h1>Lorem, ipsum dolor sit</h1>
           <p>
             amet consectetur adipisicing elit. Debitis tempora, eveniet nihil
             repellendus soluta quasi praesentium. Aperiam quia est quasi, eos
           </p>
-        </S.BackgroundText>
-      </S.Background>
+        </S.PolygonDescription>
+      </S.PolygonSecation>
+
       <S.SectionEvents>
         <h1>Eventos</h1>
         <S.Events>
           {events.map(event => (
-            <a key={event.name} href={event.name} rel="noreferrer" target="_blank">
+            <a
+              key={event.name}
+              href={event.link}
+              rel="noreferrer"
+              target="_blank"
+              style={{ height: "100%" }}
+            >
               <section className="grid-item">
                 <div className="grid-item_profile">
                   <img
@@ -109,11 +141,18 @@ function Home({ location }) {
           ))}
         </S.Events>
       </S.SectionEvents>
+
       <S.SectionCampaigns>
-        <h1>Campanhas</h1>
+        <h1 className="campaigns__title">Campanhas</h1>
         <S.Events>
           {events.map(event => (
-            <a key={event.name} href={event.name} rel="noreferrer" target="_blank">
+            <a
+              key={event.name}
+              href={event.name}
+              rel="noreferrer"
+              target="_blank"
+              style={{ height: "100%" }}
+            >
               <section className="grid-item">
                 <div className="grid-item_profile">
                   <img
@@ -138,8 +177,9 @@ function Home({ location }) {
           ))}
         </S.Events>
       </S.SectionCampaigns>
+
       <S.Footer>
-        <div className="wrapper">
+        <div>
           <a
             className="facebook"
             href="https://www.facebook.com/ufsmfrederico/"
@@ -147,16 +187,16 @@ function Home({ location }) {
             target="_blank"
           >
             <svg
+              className="footer__social-icon footer__social-facebook"
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-brand-facebook"
               width="36"
               height="36"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="#9baacb"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
@@ -169,16 +209,16 @@ function Home({ location }) {
             target="_blank"
           >
             <svg
+              className="footer__social-icon footer__social-instagram"
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-brand-instagram"
               width="36"
               height="36"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="#9baacb"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <rect x="4" y="4" width="16" height="16" rx="4" />
@@ -193,16 +233,16 @@ function Home({ location }) {
             target="_blank"
           >
             <svg
+              className="footer__social-icon footer__social-twitter"
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-brand-twitter"
               width="36"
               height="36"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="#9baacb"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
@@ -215,16 +255,16 @@ function Home({ location }) {
             target="_blank"
           >
             <svg
+              className="footer__social-icon footer__social-site"
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-at"
               width="36"
               height="36"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="#9baacb"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <circle cx="12" cy="12" r="4" />
@@ -232,9 +272,13 @@ function Home({ location }) {
             </svg>
           </a>
         </div>
-        <hr class="footer-separator" />
-        <div className="footer-container__copyright">
-          <span class="footer__year">© {new Date().getFullYear()}</span>
+
+        <hr className="footer__separator" />
+
+        <div className="footer footer-copyright-wrapper">
+          <span className="footer-copyright__year">
+            © {new Date().getFullYear()}
+          </span>
           <span>&nbsp; Copyright &nbsp;</span>
           <a href="https://ufsm.br/" rel="noreferrer" target="_blank">
             UFSM-FW.

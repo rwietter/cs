@@ -68,10 +68,10 @@ function BlogPostTemplate(props) {
         </li>
       </ul>
       <Footer>
-        © {new Date().getFullYear()}, feito por
+        © {new Date().getFullYear()},
         {` `}
         <a href="https://ufsm.br/" rel="noreferrer" target="_blank">
-          UFSM-FW
+          SI UFSM-FW
         </a>
       </Footer>
     </Layout>

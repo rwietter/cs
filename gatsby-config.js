@@ -5,7 +5,7 @@ module.exports = {
     title: `SI UFSM-FW Blog`,
     author: `SI UFSM-FW`,
     siteTitle: `UFSM-FW Blog`,
-    description: `Um blog para informar sobre assuntos da computação na sociedade`,
+    description: `Um blog para informar sobre assuntos sobre computação e sociedade`,
     siteUrl: `https://ufsm.netlify.com/`,
     social: {
       twitter: `@ufsm`,

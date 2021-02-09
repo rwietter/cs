@@ -6,6 +6,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+  a {
+    box-shadow: none;
+  }
+
   body {
     margin: 0;
     padding: 0;

@@ -66,7 +66,6 @@ const bioQuery = graphql`
 const Container = styled.div`
   display: flex;
   align-items: center;
-
   padding-bottom: ${rhythm(1)};
 `
 

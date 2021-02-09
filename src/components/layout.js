@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
-import { rhythm, scale } from '../utils/typography';
+import { rhythm } from '../utils/typography';
 
 function Layout(props) {
   const { location, title, children } = props
@@ -22,13 +22,7 @@ function Layout(props) {
       >
         <header>
           {location.pathname === rootPath || location.pathname === blogPath ? (
-            <h1
-              style={{
-                ...scale(1.5),
-                marginBottom: rhythm(1.5),
-                marginTop: 0,
-                lineHeight: 0.4,
-              }}
+            <Title
             >
               <Link
                 style={{
@@ -41,7 +35,7 @@ function Layout(props) {
               >
                 {title}
               </Link>
-            </h1>
+            </Title>
           ) : (
             <h3
               style={{
@@ -77,6 +71,14 @@ const Wrapper = styled.div`
     @media (min-width: 400px){
       line-height: 1;
     }
+  }
+`
+
+const Title = styled.h1`
+  margin-bottom: rhythm(1.5);
+  margin-top: 0;
+  @media (max-width:357px) {
+    line-height: 1
   }
 `
 

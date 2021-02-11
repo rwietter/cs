@@ -63,14 +63,18 @@ function Home({ location }) {
               ]}
             />
             <h1>
-              Bem vindo(a) <span>👋</span>
+              Bem vindo(a){" "}
+              <span role="img" aria-label="emoji">
+                👋
+              </span>
             </h1>
             <p>
               Bem vindo(a) ao blog JLM, curso de Sistemas de Informação
               (UFSM-FW).
             </p>
             <p>
-              Visite nosso blog para ler as publicações sobre computação em geral e tecnologia em sociedade.
+              Visite nosso blog para ler as publicações sobre computação em
+              geral e tecnologia em sociedade.
             </p>
             <Link to="/blog/">
               <Button marginTop="35px">Ir para o blog</Button>

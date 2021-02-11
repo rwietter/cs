@@ -131,7 +131,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `JLM | UFSM-FW`,
-        short_name: `LJM`,
+        short_name: `JLM`,
         start_url: `/`,
         background_color: `#222`,
         theme_color: `#FFF`,

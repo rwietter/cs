@@ -8,6 +8,7 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import { ReadAnimation } from '../components/ReadAnimation';
 import SEO from '../components/seo';
+import { getBrDate } from '../utils/format.date';
 import { ease } from '../utils/motion.ease';
 import { rhythm } from '../utils/typography';
 
@@ -17,30 +18,6 @@ function BlogPostTemplate(props) {
   const { previous, next } = props.pageContext
 
   const readingTime = post.fields.readingTime.text.replace("read", "de leitura")
-
-  const dates = {
-    January: "Janeiro",
-    February: "Fevereiro",
-    March: "Março",
-    April: "Abril",
-    May: "Maio",
-    June: "Junho",
-    July: "Julho",
-    August: "Agosto",
-    September: "Setembro",
-    October: "Outubro",
-    November: "Novembro",
-    December: "Dezembro",
-  }
-
-  const month = post.frontmatter?.date?.split(" ")
-  const rgx = /([A-Z])\w+/i
-
-  const [currentMonth] = month[1]?.match(rgx)
-  const ptBrDate = post.frontmatter?.date?.replace(
-    currentMonth,
-    dates[currentMonth]
-  )
 
   return (
     <motion.div {...ease}>
@@ -52,7 +29,9 @@ function BlogPostTemplate(props) {
         />
         <h1>{post.frontmatter.title}</h1>
         <ReadingTime>
-          <span>{ptBrDate || post.frontmatter.date}</span>
+          <span>
+            {getBrDate(post.frontmatter.date) || post.frontmatter.date}
+          </span>
           <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
           <span>{readingTime}</span>
         </ReadingTime>

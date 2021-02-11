@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { graphql, Link } from 'gatsby';
 import React from 'react';
 
@@ -6,6 +7,7 @@ import Button from '../components/button';
 import Layout from '../components/layout';
 import SearchPosts from '../components/searchPosts';
 import SEO from '../components/seo';
+import { ease } from '../utils/motion.ease';
 
 function Blog({ data, navigate, location }) {
   const siteTitle = data.site.siteMetadata.title
@@ -13,19 +15,21 @@ function Blog({ data, navigate, location }) {
   const localSearchBlog = data.localSearchBlog
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      <Bio />
-      <SearchPosts
-        posts={posts}
-        localSearchBlog={localSearchBlog}
-        navigate={navigate}
-        location={location}
-      />
-      <Link to="/">
-        <Button marginTop="85px">Ir para o início</Button>
-      </Link>
-    </Layout>
+    <motion.div {...ease}>
+      <Layout location={location} title={siteTitle}>
+        <SEO title="Todos os posts" />
+        <Bio />
+        <SearchPosts
+          posts={posts}
+          localSearchBlog={localSearchBlog}
+          navigate={navigate}
+          location={location}
+        />
+        <Link to="/">
+          <Button marginTop="85px">Ir para o início</Button>
+        </Link>
+      </Layout>
+    </motion.div>
   )
 }
 

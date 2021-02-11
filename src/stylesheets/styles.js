@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   height: 100%;
+  position: static;
 
   h1 {
     font-size: clamp(1.5rem, 3vw, 2rem);
@@ -53,7 +54,7 @@ export const PrimaryBackgroundImage = styled.svg`
   }
 `
 
-export const PolygonSecation = styled.div`
+export const PolygonSection = styled.div`
   grid-row: 2 / 3;
   grid-column: 1 / 3;
 
@@ -69,26 +70,81 @@ export const PolygonSecation = styled.div`
   background-image: linear-gradient(145.64deg, #00e0ff 9.67%, #0047ff 107.49%);
 
   position: relative;
-  @media (min-width: 720px) {
+  @media (min-width: 930px) {
     grid-template-columns: 1fr 1fr;
   }
 `
 
+export const PolygonCite = styled.div`
+  text-align: center;
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  > cite {
+    color: #fff;
+    font-weight: 700;
+    font-size: clamp(0.6rem, 2vw, 1rem);
+  }
+
+  &::before {
+    position: absolute;
+    content: "“";
+    color: #fff;
+    font-size: clamp(50px, 2vw, 3rem);
+    top: -20px;
+    left: -50px;
+  }
+  &::after {
+    position: absolute;
+    content: "”";
+    color: #fff;
+    font-size: clamp(50px, 2vw, 3rem);
+    bottom: -10px;
+    right: 0;
+    @media (min-width: 460px) {
+      bottom: -40px;
+    }
+    @media (min-width: 717px) {
+      bottom: -20px;
+    }
+  }
+`
+
+export const PolygonCiteAuthor = styled.p`
+  grid-column: 2/3;
+  font-weight: 800;
+  text-align: start;
+  padding: 10px 0;
+  color: #fff;
+  font-size: clamp(1rem, 2vw, 1.3rem) !important;
+`
+
 export const PlygonImage = styled(motion.svg)`
+  grid-column: 1/2;
   display: none;
   background-image: url(${require("../data/assets/Virtual_office_girl.svg")});
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  bottom: 0;
-  @media (min-width: 720px) {
-    grid-column: 1 / 2;
+  transition: all 0.4s ease;
+  @media (min-width: 930px) {
     display: block;
     margin: 0 auto;
   }
   @media (min-width: 350px) {
     width: 90%;
     height: 90%;
+    bottom: -50px;
+  }
+  @media (min-width: 1080px) {
+    width: 100%;
+    height: 100%;
+    bottom: -45px;
+  }
+  @media (min-width: 1260px) {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
   }
 `
 
@@ -96,9 +152,9 @@ export const PolygonDescription = styled.section`
   grid-column: 2/3;
   justify-content: center;
   align-items: flex-start;
-  max-width: 90%;
   flex-flow: column;
   overflow: hidden;
+  min-width: 100%;
   h1 {
     font-size: clamp(0.8rem, 2vw, 1rem);
   }
@@ -145,7 +201,6 @@ export const Events = styled.div`
 
   .grid-item {
     width: 100%;
-    height: auto;
     background-color: #fefefe;
     box-shadow: 0px 3px 17px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
@@ -177,7 +232,6 @@ export const Events = styled.div`
     }
     &:hover {
       box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.2);
-      transform: scale(1.05);
     }
   }
 
@@ -217,7 +271,6 @@ export const SectionCampaigns = styled.section`
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -227,6 +280,14 @@ export const SectionCampaigns = styled.section`
     font-size: clamp(2rem, 4vw, 2.5rem);
     box-shadow: inset 0 -15px 0 rgba(0, 194, 255, 0.6);
   }
+`
+
+export const ThereAreNotEvents = styled.p`
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: clamp(1rem, 3vw, 1.6rem);
+  color: rgba(12, 12, 12, 0.5);
 `
 
 export const Footer = styled.footer`

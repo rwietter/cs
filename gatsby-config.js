@@ -130,7 +130,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `LJM | UFSM-FW`,
+        name: `JLM | UFSM-FW`,
         short_name: `LJM`,
         start_url: `/`,
         background_color: `rgba(250, 250, 250, 1)`,

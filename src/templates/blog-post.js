@@ -78,7 +78,7 @@ function BlogPostTemplate(props) {
         <Footer>
           © {new Date().getFullYear()},{` `}
           <a href="https://ufsm.br/" rel="noreferrer" target="_blank">
-            JLM | SI UFSM-FW
+            JLM
           </a>
         </Footer>
       </Layout>

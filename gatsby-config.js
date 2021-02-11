@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = {
   siteMetadata: {
     title: `JLM | SI UFSM-FW`,
-    author: `JLM | SI UFSM-FW`,
+    author: `JLM`,
     siteTitle: `JLM | SI UFSM-FW`,
     description: `JLM é um blog desenvolvido durante a matéria de computadores e sociedade. O Blog tem como objetivo informar eventos, campanhas ativas no campus e região. Além de publicar artigos relacionados a computação e sociedade.`,
     siteUrl: `https://ufsm.netlify.com/`,
@@ -53,7 +53,7 @@ module.exports = {
                 frontmatter {
                   title
                   description
-                  date(formatString: "MMMM DD, YYYY")
+                  date(formatString: "DD MMMM, YYYY")
                 }
               }
             }

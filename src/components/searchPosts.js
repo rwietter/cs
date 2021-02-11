@@ -7,15 +7,14 @@ import styled from 'styled-components';
 import { getBrDate } from '../utils/format.date';
 import { rhythm } from '../utils/typography';
 
-const SearchedPosts = ({ results }) =>
-  results.length > 0 ? (
+const SearchedPosts = ({ results }) => {
+  return results.length > 0 ? (
     results.map(node => {
       const date = node.date
       const title = node.title || node.slug
       const description = node.description
       const excerpt = node.excerpt
       const slug = node.slug
-
       return (
         <div key={slug}>
           <h3
@@ -27,7 +26,7 @@ const SearchedPosts = ({ results }) =>
               {title}
             </Link>
           </h3>
-          <small>{date}</small>
+          <small>{getBrDate(date)}</small>
           <p
             dangerouslySetInnerHTML={{
               __html: description || excerpt,
@@ -37,10 +36,12 @@ const SearchedPosts = ({ results }) =>
       )
     })
   ) : (
-    <p style={{ textAlign: "center" }}>
+    <p style={{ textAlign: "center", padding: '2rem' }}>
       Não foi possível encontrar nenhum post que correspondente a esta pesquisa.
     </p>
   )
+}
+  
 
 const AllPosts = ({ posts }) => {
   return (
@@ -84,6 +85,8 @@ const SearchPosts = ({ posts, localSearchBlog, location, navigate }) => {
     JSON.parse(localSearchBlog.store)
   )
 
+  console.log(JSON.parse(localSearchBlog.store))
+
   return (
     <>
       <SearchBar>
@@ -113,7 +116,6 @@ const SearchPosts = ({ posts, localSearchBlog, location, navigate }) => {
 }
 
 export default SearchPosts
-
 
 const SearchBar = styled.div`
   display: flex;

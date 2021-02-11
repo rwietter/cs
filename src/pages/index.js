@@ -70,8 +70,7 @@ function Home({ location }) {
               (UFSM-FW).
             </p>
             <p>
-              Visite nosso blog para conhecer mais sobre o que acontece no
-              campus e na região em relação a computação e sociedade.
+              Visite nosso blog para ler as publicações sobre computação em geral e tecnologia em sociedade.
             </p>
             <Link to="/blog/">
               <Button marginTop="35px">Ir para o blog</Button>
@@ -127,9 +126,9 @@ function Home({ location }) {
                   rel="noreferrer"
                   target="_blank"
                   style={{ height: "100%" }}
-                  transition={{ type: "spring" }}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "tween" }}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
                 >
                   <section className="grid-item">
                     <div className="grid-item_profile">
@@ -174,8 +173,9 @@ function Home({ location }) {
                   rel="noreferrer"
                   target="_blank"
                   style={{ height: "100%" }}
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "tween" }}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
                 >
                   <section className="grid-item">
                     <div className="grid-item_profile">

@@ -18,6 +18,30 @@ function BlogPostTemplate(props) {
 
   const readingTime = post.fields.readingTime.text.replace("read", "de leitura")
 
+  const dates = {
+    January: "Janeiro",
+    February: "Fevereiro",
+    March: "Março",
+    April: "Abril",
+    May: "Maio",
+    June: "Junho",
+    July: "Julho",
+    August: "Agosto",
+    September: "Setembro",
+    October: "Outubro",
+    November: "Novembro",
+    December: "Dezembro",
+  }
+
+  const month = post.frontmatter?.date?.split(" ")
+  const rgx = /([A-Z])\w+/i
+
+  const [currentMonth] = month[1]?.match(rgx)
+  const ptBrDate = post.frontmatter?.date?.replace(
+    currentMonth,
+    dates[currentMonth]
+  )
+
   return (
     <motion.div {...ease}>
       <ReadAnimation />
@@ -28,7 +52,7 @@ function BlogPostTemplate(props) {
         />
         <h1>{post.frontmatter.title}</h1>
         <ReadingTime>
-          <span>{post.frontmatter.date}</span>
+          <span>{ptBrDate || post.frontmatter.date}</span>
           <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
           <span>{readingTime}</span>
         </ReadingTime>
@@ -75,7 +99,7 @@ function BlogPostTemplate(props) {
         <Footer>
           © {new Date().getFullYear()},{` `}
           <a href="https://ufsm.br/" rel="noreferrer" target="_blank">
-            SI UFSM-FW
+            JLM | SI UFSM-FW
           </a>
         </Footer>
       </Layout>

@@ -15,8 +15,8 @@ function ReadAnimation() {
       <svg className="c-reader_animation" viewBox="0 0 60 60" width="100">
         <defs>
           <linearGradient id="gradient" y1="0" y2="1">
-            <stop offset="0" stop-color="rgb(0,224,255,1)" />
-            <stop offset="1" stop-color="rgb(0,71,255,1)" />
+            <stop offset="0" stopColor="rgb(0,224,255,1)" />
+            <stop offset="1" stopColor="rgb(0,71,255,1)" />
           </linearGradient>
         </defs>
         <motion.path

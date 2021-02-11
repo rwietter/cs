@@ -19,7 +19,7 @@ class NotFoundPage extends React.Component {
     const siteTitle = data.site.siteMetadata.title
 
     const defaultOptions = {
-      loop: true,
+      loop: false,
       autoplay: true,
       animationData: LottieError,
       rendererSettings: {
@@ -27,8 +27,16 @@ class NotFoundPage extends React.Component {
       },
     }
 
+    const updateEase = {
+      ...ease,
+      transition: {
+        type: "tween",
+        duration: 0.3,
+      },
+    }
+
     return (
-      <motion.div {...ease}>
+      <motion.div {...updateEase}>
         <Layout location={this.props.location} title={siteTitle}>
           <SEO title="404: Não encontrado" />
           <h1>Página não econtrada!</h1>
@@ -39,9 +47,7 @@ class NotFoundPage extends React.Component {
             isPaused={this.state.isPaused}
           />
           <ErrorDescription>
-            <p>
-              Você caiu em uma página que não existe!
-            </p>
+            <p>Você caiu em uma página que não existe!</p>
             <Link to={"/"} state={{ modal: true }}>
               <p>Partiu início ?</p>
             </Link>

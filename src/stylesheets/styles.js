@@ -78,12 +78,13 @@ export const PolygonSection = styled.div`
 export const PolygonCite = styled.div`
   text-align: center;
   position: relative;
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
   > cite {
     color: #fff;
     font-weight: 700;
-    font-size: clamp(0.6rem, 2vw, 1rem);
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    line-height: 0.8;
   }
 
   &::before {
@@ -92,7 +93,7 @@ export const PolygonCite = styled.div`
     color: #fff;
     font-size: clamp(50px, 2vw, 3rem);
     top: -20px;
-    left: -50px;
+    left: -30px;
   }
   &::after {
     position: absolute;
@@ -100,12 +101,13 @@ export const PolygonCite = styled.div`
     color: #fff;
     font-size: clamp(50px, 2vw, 3rem);
     bottom: -10px;
-    right: 0;
-    @media (min-width: 460px) {
+    right: -10px;
+    @media (min-width: 380px) {
       bottom: -40px;
     }
     @media (min-width: 717px) {
-      bottom: -20px;
+      bottom: 0;
+      bottom: 20px;
     }
   }
 `

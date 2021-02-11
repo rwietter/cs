@@ -5,10 +5,10 @@ module.exports = {
     title: `JLM | SI UFSM-FW`,
     author: `JLM | SI UFSM-FW`,
     siteTitle: `JLM | SI UFSM-FW`,
-    description: `Um blog para informar sobre assuntos sobre computação e sociedade`,
+    description: `JLM é um blog desenvolvido durante a matéria de computadores e sociedade. O Blog tem como objetivo informar eventos, campanhas ativas no campus e região. Além de publicar artigos relacionados a computação e sociedade.`,
     siteUrl: `https://ufsm.netlify.com/`,
     social: {
-      twitter: `@ufsm`,
+      twitter: `@ufsmfw`,
     },
   },
   plugins: [
@@ -130,14 +130,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `UFSM Blog`,
-        short_name: `UFSM-FW`,
+        name: `LJM | UFSM-FW`,
+        short_name: `LJM`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `rgba(250, 250, 250, 1)`,
+        theme_color: `rgba(0, 194, 255, 1)`,
         display: `minimal-ui`,
-        // edit below
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/webapp_icon.png`,
       },
     },
     {

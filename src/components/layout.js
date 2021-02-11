@@ -29,7 +29,7 @@ function Layout(props) {
                   boxShadow: `none`,
                   textDecoration: `none`,
                   color: `inherit`,
-                  fontSize: "clamp(32px, 5vw, 6rem)",
+                  fontSize: "clamp(32px, 5vw, 3rem)",
                 }}
                 to={location.pathname === blogPath ? `/blog/` : `/`}
               >

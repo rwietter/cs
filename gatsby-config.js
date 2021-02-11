@@ -2,9 +2,9 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    title: `SI UFSM-FW Blog`,
-    author: `SI UFSM-FW`,
-    siteTitle: `UFSM-FW Blog`,
+    title: `JLM | SI UFSM-FW`,
+    author: `JLM | SI UFSM-FW`,
+    siteTitle: `JLM | SI UFSM-FW`,
     description: `Um blog para informar sobre assuntos sobre computação e sociedade`,
     siteUrl: `https://ufsm.netlify.com/`,
     social: {
@@ -18,7 +18,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    'gatsby-remark-reading-time',
+    "gatsby-remark-reading-time",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -29,9 +29,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [
-          `gatsby-remark-reading-time`,
-        ],
+        plugins: [`gatsby-remark-reading-time`],
       },
     },
     {

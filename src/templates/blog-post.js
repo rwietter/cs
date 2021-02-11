@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { graphql, Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
@@ -5,7 +6,9 @@ import styled from 'styled-components';
 
 import Bio from '../components/bio';
 import Layout from '../components/layout';
+import { ReadAnimation } from '../components/ReadAnimation';
 import SEO from '../components/seo';
+import { ease } from '../utils/motion.ease';
 import { rhythm } from '../utils/typography';
 
 function BlogPostTemplate(props) {
@@ -16,65 +19,67 @@ function BlogPostTemplate(props) {
   const readingTime = post.fields.readingTime.text.replace("read", "de leitura")
 
   return (
-    <Layout location={props.location} title={siteTitle}>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
-      <h1>{post.frontmatter.title}</h1>
-      <ReadingTime>
-        <span>{post.frontmatter.date}</span>
-        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-        <span>{readingTime}</span>
-      </ReadingTime>
-      <div
-        style={{
-          width: "100%",
-          height: "1px",
-          background: "#ccc",
-          margin: "0.4rem 0 1.4rem 0",
-        }}
-      />
-      <MDXRenderer>{post.body}</MDXRenderer>
-      <hr
-        style={{
-          marginBottom: rhythm(1),
-        }}
-      />
-      <Bio />
+    <motion.div {...ease}>
+      <ReadAnimation />
+      <Layout location={props.location} title={siteTitle}>
+        <SEO
+          title={post.frontmatter.title}
+          description={post.frontmatter.description || post.excerpt}
+        />
+        <h1>{post.frontmatter.title}</h1>
+        <ReadingTime>
+          <span>{post.frontmatter.date}</span>
+          <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <span>{readingTime}</span>
+        </ReadingTime>
+        <div
+          style={{
+            width: "100%",
+            height: "1px",
+            background: "#ccc",
+            margin: "0.4rem 0 1.4rem 0",
+          }}
+        />
+        <MDXRenderer>{post.body}</MDXRenderer>
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <Bio />
 
-      <ul
-        style={{
-          display: `flex`,
-          flexWrap: `wrap`,
-          justifyContent: `space-between`,
-          listStyle: `none`,
-          padding: 0,
-        }}
-      >
-        <li>
-          {previous && (
-            <Link to={`/blog${previous.fields.slug}`} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>
-          )}
-        </li>
-        <li>
-          {next && (
-            <Link to={`/blog${next.fields.slug}`} rel="next">
-              {next.frontmatter.title} →
-            </Link>
-          )}
-        </li>
-      </ul>
-      <Footer>
-        © {new Date().getFullYear()},
-        {` `}
-        <a href="https://ufsm.br/" rel="noreferrer" target="_blank">
-          SI UFSM-FW
-        </a>
-      </Footer>
-    </Layout>
+        <ul
+          style={{
+            display: `flex`,
+            flexWrap: `wrap`,
+            justifyContent: `space-between`,
+            listStyle: `none`,
+            padding: 0,
+          }}
+        >
+          <li>
+            {previous && (
+              <Link to={`/blog${previous.fields.slug}`} rel="prev">
+                ← {previous.frontmatter.title}
+              </Link>
+            )}
+          </li>
+          <li>
+            {next && (
+              <Link to={`/blog${next.fields.slug}`} rel="next">
+                {next.frontmatter.title} →
+              </Link>
+            )}
+          </li>
+        </ul>
+        <Footer>
+          © {new Date().getFullYear()},{` `}
+          <a href="https://ufsm.br/" rel="noreferrer" target="_blank">
+            SI UFSM-FW
+          </a>
+        </Footer>
+      </Layout>
+    </motion.div>
   )
 }
 

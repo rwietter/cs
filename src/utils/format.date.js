@@ -14,6 +14,8 @@ const dates = {
 }
 
 const getBrDate = (date) => {
+  if (!date) return;
+  
   const month = date?.split(" ")
   const rgx = /([A-Z])\w+/i
 

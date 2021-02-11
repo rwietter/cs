@@ -7,6 +7,6 @@ export const ease = {
   },
   transition: {
     type: "tween",
-    duration: 0.6,
+    duration: 0.4,
   },
 }

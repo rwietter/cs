@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useFlexSearch } from 'react-use-flexsearch';
 import styled from 'styled-components';
 
+import { getBrDate } from '../utils/format.date';
 import { rhythm } from '../utils/typography';
 
 const SearchedPosts = ({ results }) =>
@@ -37,36 +38,41 @@ const SearchedPosts = ({ results }) =>
     })
   ) : (
     <p style={{ textAlign: "center" }}>
-      Sorry, couldn't find any posts matching this search.
+      Não foi possível encontrar nenhum post que correspondente a esta pesquisa.
     </p>
   )
 
-const AllPosts = ({ posts }) => (
-  <div style={{ margin: "20px 0 40px" }}>
-    {posts.map(({ node }) => {
-      const title = node.frontmatter.title || node.fields.slug
-      return (
-        <div key={node.fields.slug}>
-          <h3
-            style={{
-              marginBottom: rhythm(1 / 4),
-            }}
-          >
-            <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
-              {title}
-            </Link>
-          </h3>
-          <small>{node.frontmatter.date}</small>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: node.frontmatter.description || node.excerpt,
-            }}
-          />
-        </div>
-      )
-    })}
-  </div>
-)
+const AllPosts = ({ posts }) => {
+  return (
+    <div style={{ margin: "20px 0 40px" }}>
+      {posts.map(({ node }) => {
+        const title = node.frontmatter.title || node.fields.slug
+        return (
+          <div key={node.fields.slug}>
+            <h3
+              style={{
+                marginBottom: rhythm(1 / 4),
+              }}
+            >
+              <Link
+                style={{ boxShadow: `none` }}
+                to={`/blog${node.fields.slug}`}
+              >
+                {title}
+              </Link>
+            </h3>
+            <small>{getBrDate(node.frontmatter.date)}</small>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: node.frontmatter.description || node.excerpt,
+              }}
+            />
+          </div>
+        )
+      })}
+    </div>
+  )
+}
 
 const SearchPosts = ({ posts, localSearchBlog, location, navigate }) => {
   const { search } = queryString.parse(location.search)
@@ -91,7 +97,7 @@ const SearchPosts = ({ posts, localSearchBlog, location, navigate }) => {
         <input
           id="search"
           type="search"
-          placeholder="Search all posts"
+          placeholder="Procurar post específico"
           value={query}
           onChange={e => {
             navigate(
